@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* For some reason, this line makes the file import *itself* and create a loop,
+** rather than import the index.scss from the styles folder */
+// @use 'styles' as *; 
+
+/* This looks ugly */
+// @use 'styles/_index.scss' as *;
+
+/* If possible, @use the folders inside 'styles' */
+@use 'styles/abstracts' as a;
+@use 'styles/base';
+
+* {
+  color: a.$primary;
+  font-size: 60px;
+}

@@ -1,0 +1,9 @@
+@use 'abstracts';
+@use 'sass:color';
+@use 'sass:math';
+
+* {
+  color: abstracts.$secondary !important;
+  background-color: color.adjust(abstracts.$secondary, $alpha: -0.7);
+  height: math.random(100) + px;
+}
