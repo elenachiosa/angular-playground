@@ -1,0 +1,27 @@
+<section class="categories">
+  <h2>
+    <span>Categories</span>
+    <button mat-stroked-button
+            color="primary"
+            class="margin-left"
+            (click)="openCategoryDialog()">Add category</button>
+  </h2>
+  <mat-list role="list">
+    <mat-list-item role="listitem">Category 1</mat-list-item>
+    <mat-list-item role="listitem">Category 2</mat-list-item>
+    <mat-list-item role="listitem">Category 3</mat-list-item>
+  </mat-list>
+</section>
+
+<section class="tasks">
+  <h2><span>*Selected category*</span>
+    <button mat-stroked-button
+            color="accent"
+            class="margin-left"
+            (click)="openTaskDialog()">Add task</button></h2>
+  <mat-list role="list">
+    <mat-list-item role="listitem">Task 1</mat-list-item>
+    <mat-list-item role="listitem">Task 2</mat-list-item>
+    <mat-list-item role="listitem">Task 3</mat-list-item>
+  </mat-list>
+</section>

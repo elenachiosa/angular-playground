@@ -1,15 +1,21 @@
-/* For some reason, this line makes the file import *itself* and create a loop,
-** rather than import the index.scss from the styles folder */
-// @use 'styles' as *; 
+:root {
+  --grey700: #455a64;
+  --grey200: #b0bec5;
+}
 
-/* This looks ugly */
-// @use 'styles/_index.scss' as *;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-/* If possible, @use the folders inside 'styles' */
-@use 'styles/abstracts' as a;
-@use 'styles/base';
-
-* {
-  color: a.$primary;
-  font-size: 60px;
+.margin-right {
+  margin-right: 10px !important;
+}
+.margin-left {
+  margin-left: 10px !important;
 }
