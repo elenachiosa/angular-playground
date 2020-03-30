@@ -1,0 +1,31 @@
+<section class="categories">
+  <h2>
+    <span>Categories</span>
+    <button mat-stroked-button
+            color="primary"
+            class="margin-left"
+            (click)="openCategoryDialog()">🏷 Add category</button>
+  </h2>
+  <mat-selection-list role="list"
+                      [multiple]="false"
+                      [compareWith]="compareFunction"
+                      [(ngModel)]="selectedCategory">
+    <mat-list-option *ngFor="let category of categories"
+                     role="listitem"
+                     [value]="category">{{category.name | titlecase}}</mat-list-option>
+  </mat-selection-list>
+</section>
+
+<section class="tasks">
+  <h2><span>{{selectedCategory[0].name | titlecase}}</span>
+    <button mat-stroked-button
+            color="accent"
+            class="margin-left"
+            disabled
+            (click)="openTaskDialog()">📋 Add task</button></h2>
+  <mat-list role="list">
+    <mat-list-item role="listitem">Task 1</mat-list-item>
+    <mat-list-item role="listitem">Task 2</mat-list-item>
+    <mat-list-item role="listitem">Task 3</mat-list-item>
+  </mat-list>
+</section>
