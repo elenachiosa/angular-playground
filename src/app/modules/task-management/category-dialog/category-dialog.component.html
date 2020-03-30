@@ -21,7 +21,8 @@
      align="center">
   <button mat-button
           form="categoryForm"
-          type="submit">Add</button>
+          type="submit"
+          [disabled]="categoryForm.invalid">Add</button>
   <button mat-button
           (click)="closeDialog()">Close</button>
 </div>
