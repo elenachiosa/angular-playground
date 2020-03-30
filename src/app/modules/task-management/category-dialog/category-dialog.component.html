@@ -1,8 +1,27 @@
 <h1 mat-dialog-title>🏷 Add category</h1>
 <div mat-dialog-content>
-  form goes here
+  <form [formGroup]="categoryForm"
+        (ngSubmit)="onSubmit()"
+        id="categoryForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput
+             formControlName="name"
+             placeholder="Name">
+    </mat-form-field>
+    <mat-form-field class="color">
+      <mat-label>Color 🌈</mat-label>
+      <input matInput
+             formControlName="color"
+             type="color">
+    </mat-form-field>
+  </form>
 </div>
-<div mat-dialog-actions align="center">
-  <button mat-button>Add</button>
-  <button mat-button (click)="closeDialog()">Close</button>
+<div mat-dialog-actions
+     align="center">
+  <button mat-button
+          form="categoryForm"
+          type="submit">Add</button>
+  <button mat-button
+          (click)="closeDialog()">Close</button>
 </div>
