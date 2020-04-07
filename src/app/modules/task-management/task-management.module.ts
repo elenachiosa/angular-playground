@@ -9,8 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 
 import { TaskManagementRoutingModule } from "./task-management-routing.module";
 import { TaskManagementComponent } from "./task-management.component";
-import { CategoryDialogComponent } from "../task-management/category-dialog/category-dialog.component";
-import { TaskDialogComponent } from "../task-management/task-dialog/task-dialog.component";
+import { CategoryDialogComponent, TaskDialogComponent } from '.';
 
 @NgModule({
   declarations: [

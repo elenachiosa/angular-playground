@@ -1,14 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
 
 import { MatDialog } from "@angular/material/dialog";
 
-import { CategoryDialogComponent } from "../task-management/category-dialog/category-dialog.component";
-import { TaskDialogComponent } from "../task-management/task-dialog/task-dialog.component";
-import { CategoryService } from "./shared/services/category.service";
-import { Category } from "./shared/models/category.model";
-import { TaskService } from "./shared/services/task.service";
-import { Task } from "./shared/models/task.model";
-import { Subscription } from "rxjs";
+import { Task, TaskService, Category, CategoryService } from './shared';
+import { TaskDialogComponent, CategoryDialogComponent } from '.';
+
 
 @Component({
   selector: "app-task-management",

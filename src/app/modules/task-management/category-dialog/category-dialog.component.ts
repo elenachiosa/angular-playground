@@ -1,13 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import {
-  FormBuilder,
   FormGroup,
   Validators,
   FormControl
 } from "@angular/forms";
 
 import { MatDialogRef } from "@angular/material/dialog";
-import { CategoryService } from "../shared/services/category.service";
+import { CategoryService } from '../shared';
 
 @Component({
   selector: "app-category-dialog",
