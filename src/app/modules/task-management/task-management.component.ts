@@ -1,16 +1,15 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog } from '@angular/material/dialog';
 
 import { Task, TaskService, Category, CategoryService } from './shared';
 import { TaskDialogComponent, CategoryDialogComponent } from '.';
 
-
 @Component({
-  selector: "app-task-management",
-  templateUrl: "./task-management.component.html",
-  styleUrls: ["./task-management.component.scss"]
+  selector: 'app-task-management',
+  templateUrl: './task-management.component.html',
+  styleUrls: ['./task-management.component.scss']
 })
 export class TaskManagementComponent implements OnInit, OnDestroy {
   categories: Category[];
@@ -20,19 +19,13 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
   private getTaskSubscription: Subscription;
 
   constructor(
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     private categoryService: CategoryService,
     private taskService: TaskService
   ) {}
 
   ngOnInit(): void {
-    this.getCategorySubscription = this.categoryService
-      .get()
-      .subscribe(result => {
-        this.categories = result;
-        this.selectedCategories = [this.categories[0]];
-        this.onSelectedCategoryChange(this.selectedCategories);
-      });
+    this.getCategories();
   }
 
   ngOnDestroy(): void {
@@ -42,23 +35,33 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
 
   compareFunction = (o1: any, o2: any) => o1.name === o2.name;
 
-  openCategoryDialog(): void {
+  onAddCategoryClicked(): void {
     const dialogRef = this.dialog.open(CategoryDialogComponent, {
-      width: "500px"
+      width: '500px'
     });
   }
 
-  openTaskDialog(): void {
+  onAddTaskClicked(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: "500px"
+      width: '500px'
     });
   }
 
   onSelectedCategoryChange(categories: Category[]) {
     this.getTaskSubscription = this.taskService
       .get(categories[0].id)
-      .subscribe(result => {
+      .subscribe((result) => {
         this.selectedTasks = result;
+      });
+  }
+
+  getCategories() {
+    this.getCategorySubscription = this.categoryService
+      .get()
+      .subscribe((result) => {
+        this.categories = result;
+        this.selectedCategories = [this.categories[0]];
+        this.onSelectedCategoryChange(this.selectedCategories);
       });
   }
 }

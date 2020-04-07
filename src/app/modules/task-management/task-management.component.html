@@ -4,7 +4,7 @@
     <button mat-stroked-button
             color="primary"
             class="margin-left"
-            (click)="openCategoryDialog()">🏷 Add category</button>
+            (click)="onAddCategoryClicked()">🏷 Add category</button>
   </h2>
   <mat-selection-list role="list"
                       [multiple]="false"
@@ -23,7 +23,7 @@
             color="accent"
             class="margin-left"
             disabled
-            (click)="openTaskDialog()">📋 Add task</button></h2>
+            (click)="onAddTaskClicked()">📋 Add task</button></h2>
   <mat-list role="list">
     <mat-list-item *ngFor="let task of selectedTasks"
                    role="listitem">{{task.title}}</mat-list-item>
