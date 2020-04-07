@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 
 import { MatDialogRef } from "@angular/material/dialog";
+import { CategoryService } from "../shared/services/category.service";
 
 @Component({
   selector: "app-category-dialog",
@@ -23,7 +24,10 @@ export class CategoryDialogComponent implements OnInit {
     color: new FormControl("#ffffff", [Validators.required])
   });
 
-  constructor(public dialogRef: MatDialogRef<CategoryDialogComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<CategoryDialogComponent>,
+    private categoryService: CategoryService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -33,6 +37,6 @@ export class CategoryDialogComponent implements OnInit {
 
   onSubmit() {
     this.closeDialog();
-    console.log(this.categoryForm.value);
+    this.categoryService.add(this.categoryForm.value);
   }
 }

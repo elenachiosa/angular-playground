@@ -9,7 +9,8 @@
   <mat-selection-list role="list"
                       [multiple]="false"
                       [compareWith]="compareFunction"
-                      [(ngModel)]="selectedCategory">
+                      [(ngModel)]="selectedCategories"
+                      (ngModelChange)="onSelectedCategoryChange($event)">
     <mat-list-option *ngFor="let category of categories"
                      role="listitem"
                      [value]="category">{{category.name | titlecase}}</mat-list-option>
@@ -17,15 +18,14 @@
 </section>
 
 <section class="tasks">
-  <h2><span>{{selectedCategory[0].name | titlecase}}</span>
+  <h2><span>{{selectedCategories[0].name | titlecase}}</span>
     <button mat-stroked-button
             color="accent"
             class="margin-left"
             disabled
             (click)="openTaskDialog()">📋 Add task</button></h2>
   <mat-list role="list">
-    <mat-list-item role="listitem">Task 1</mat-list-item>
-    <mat-list-item role="listitem">Task 2</mat-list-item>
-    <mat-list-item role="listitem">Task 3</mat-list-item>
+    <mat-list-item *ngFor="let task of selectedTasks"
+                   role="listitem">{{task.title}}</mat-list-item>
   </mat-list>
 </section>
