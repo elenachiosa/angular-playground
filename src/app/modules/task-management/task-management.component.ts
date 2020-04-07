@@ -4,7 +4,8 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Task, TaskService, Category, CategoryService } from './shared';
-import { TaskDialogComponent, CategoryDialogComponent } from '.';
+import { CategoryDialogComponent } from './category-dialog';
+import { TaskDialogComponent } from './task-dialog';
 
 @Component({
   selector: 'app-task-management',
@@ -15,6 +16,7 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
   categories: Category[];
   selectedCategories: Category[];
   selectedTasks: Task[];
+
   private getCategorySubscription: Subscription;
   private getTaskSubscription: Subscription;
 

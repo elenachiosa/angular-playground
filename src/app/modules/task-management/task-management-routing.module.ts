@@ -4,7 +4,7 @@ import { TaskManagementComponent } from './task-management.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: TaskManagementComponent
   }
 ];
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TaskManagementRoutingModule { }
+export class TaskManagementRoutingModule {}

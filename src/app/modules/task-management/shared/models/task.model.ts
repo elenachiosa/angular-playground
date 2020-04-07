@@ -1,6 +1,6 @@
 export class Task {
-  id: string;
-  categoryId: string;
+  id: number;
+  categoryId: number;
   title: string;
   description?: string;
   priority?: number;

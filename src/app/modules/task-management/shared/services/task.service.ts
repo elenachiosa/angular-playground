@@ -6,14 +6,15 @@ import { Task } from '../models/task.model';
   providedIn: 'root'
 })
 export class TaskService {
+  constructor() {}
 
-  constructor() { }
-
-  get(categoryId: string): Observable<Task[]> {
-    return of([{
-      id: '1',
-      categoryId: categoryId,
-      title: `Test${categoryId}`
-    }])
+  get(categoryId: number): Observable<Task[]> {
+    return of([
+      {
+        id: 1,
+        categoryId: categoryId,
+        title: `${categoryId} - Task`
+      }
+    ]);
   }
 }
