@@ -6,15 +6,17 @@ import { Task } from '../models/task.model';
   providedIn: 'root'
 })
 export class TaskService {
+  categoryTasks = new Map<number, Task[]>();
+
   constructor() {}
 
   get(categoryId: number): Observable<Task[]> {
-    return of([
-      {
-        id: 1,
-        categoryId: categoryId,
-        title: `${categoryId} - Task`
-      }
-    ]);
+    return of(this.categoryTasks.get(categoryId));
+  }
+
+  add(categoryId: number, task: Task) {
+    let tasks = this.categoryTasks.get(categoryId);
+    tasks.push(task);
+    this.categoryTasks.set(categoryId, tasks);
   }
 }

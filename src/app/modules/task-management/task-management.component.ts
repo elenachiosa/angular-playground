@@ -4,8 +4,8 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Task, TaskService, Category, CategoryService } from './shared';
-import { CategoryDialogComponent } from './category-dialog';
-import { TaskDialogComponent } from './task-dialog';
+import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-task-management',

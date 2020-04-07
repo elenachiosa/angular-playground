@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { CategoryService, Category } from '../shared';
@@ -14,7 +14,8 @@ export class CategoryDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<CategoryDialogComponent>,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private formBuilder: FormBuilder
   ) {
     this.initialiseForm();
   }
@@ -25,19 +26,18 @@ export class CategoryDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.closeDialog();
     this.categoryService.add(this.categoryForm.value as Category);
   }
 
-  private initialiseForm() {
-    this.categoryForm = new FormGroup({
-      name: new FormControl('', [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(30)
-      ]),
-      color: new FormControl('#ffffff', [Validators.required])
+  private initialiseForm(): void {
+    this.categoryForm = this.formBuilder.group({
+      name: [
+        '',
+        [Validators.required, Validators.minLength(1), Validators.maxLength(30)]
+      ],
+      color: ['#ffffff', [Validators.required]]
     });
   }
 }
