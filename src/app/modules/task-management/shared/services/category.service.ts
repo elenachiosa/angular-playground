@@ -7,9 +7,9 @@ import { Category } from '../models/category.model';
 })
 export class CategoryService {
   private categories: Category[] = [
-    { id: 1, name: 'personal' },
-    { id: 2, name: 'work' },
-    { id: 3, name: 'shopping' }
+    { id: 1, name: 'personal', color: 'rgb(123, 168, 251)' },
+    { id: 2, name: 'work', color: 'rgb(253, 121, 190)' },
+    { id: 3, name: 'shopping', color: 'rgb(255, 224, 119)' }
   ];
 
   constructor() {}

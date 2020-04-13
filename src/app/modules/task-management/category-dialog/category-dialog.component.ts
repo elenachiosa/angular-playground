@@ -27,8 +27,8 @@ export class CategoryDialogComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.closeDialog();
     this.categoryService.add(this.categoryForm.value as Category);
+    this.closeDialog();
   }
 
   private initialiseForm(): void {
@@ -37,7 +37,7 @@ export class CategoryDialogComponent implements OnInit {
         '',
         [Validators.required, Validators.minLength(1), Validators.maxLength(30)]
       ],
-      color: ['#ffffff', [Validators.required]]
+      color: ['#b0bec5', [Validators.required]]
     });
   }
 }

@@ -13,7 +13,11 @@
                       (ngModelChange)="onSelectedCategoryChange($event)">
     <mat-list-option *ngFor="let category of categories"
                      role="listitem"
-                     [value]="category">{{category.name | titlecase}}</mat-list-option>
+                     [value]="category">
+      <span class="circle"
+            [style.backgroundColor]="category.color"></span>
+      <span>{{category.name | titlecase}}</span>
+    </mat-list-option>
   </mat-selection-list>
 </section>
 
@@ -25,6 +29,11 @@
             (click)="onAddTaskClicked()">📋 Add task</button></h2>
   <mat-list role="list">
     <mat-list-item *ngFor="let task of selectedTasks"
-                   role="listitem">{{task.title}}</mat-list-item>
+                   role="listitem"
+                   class="task"
+                   [style.borderColor]="selectedCategories[0].color">{{task.title}}
+      <div [style.backgroundColor]="selectedCategories[0].color"
+           class="background"></div>
+    </mat-list-item>
   </mat-list>
 </section>

@@ -6,17 +6,38 @@ import { Task } from '../models/task.model';
   providedIn: 'root'
 })
 export class TaskService {
-  categoryTasks = new Map<number, Task[]>();
+  private categoryTasks = new Map<number, Task[]>();
 
-  constructor() {}
+  constructor() {
+    let tasks: Task[] = [
+      {
+        id: 1,
+        title: 'Wash the dog'
+      }
+    ];
+    this.categoryTasks.set(1, tasks);
+  }
 
   get(categoryId: number): Observable<Task[]> {
     return of(this.categoryTasks.get(categoryId));
   }
 
-  add(categoryId: number, task: Task) {
-    let tasks = this.categoryTasks.get(categoryId);
+  add(categoryId: number, task: Task): void {
+    let maxId: number;
+    let tasks: Task[];
+
+    if (this.categoryTasks.get(categoryId)) {
+      tasks = this.categoryTasks.get(categoryId);
+      let ids = tasks.map((element) => element.id);
+      maxId = Math.max(...ids);
+    } else {
+      tasks = [];
+      maxId = 0;
+    }
+
+    task.id = ++maxId;
     tasks.push(task);
+
     this.categoryTasks.set(categoryId, tasks);
   }
 }

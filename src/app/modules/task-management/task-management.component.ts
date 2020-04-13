@@ -45,7 +45,15 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
 
   onAddTaskClicked(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '500px'
+      width: '500px',
+      data: {
+        categoryId: this.selectedCategories[0].id
+      }
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.taskService
+        .get(this.selectedCategories[0].id)
+        .subscribe((tasks) => (this.selectedTasks = tasks));
     });
   }
 
