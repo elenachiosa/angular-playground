@@ -1,53 +1,53 @@
-:host {
+:host ::ng-deep {
   display: flex;
   width: 100%;
 
-  ::ng-deep .mat-list-text {
+  .mat-list-text {
     flex-direction: row !important;
     align-items: center;
   }
 
-  ::ng-deep .mat-list-single-selected-option {
-    background-color: rgba(0,0,0,0.05);
+  mat-list-single-selected-option {
+    background-color: rgba(0, 0, 0, 0.05);
   }
-}
 
-.categories {
-  flex-basis: 300px;
-  border-right: 1px solid var(--grey200);
-  margin-right: 30px;
-  padding-right: 30px;
-}
+  app-category-overview {
+    flex-basis: 300px;
+    border-right: 1px solid var(--grey200);
+    margin-right: 30px;
+    padding-right: 30px;
+  }
 
-.tasks {
-  flex-grow: 1;
+  app-task-overview {
+    flex-grow: 1;
 
-  .task {
-    position: relative;
-    margin-bottom: 10px;
-    border: 1px solid var(--grey200);
+    .task {
+      position: relative;
+      margin-bottom: 10px;
+      border: 1px solid var(--grey200);
 
-    .background {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      opacity: 0.15;
+      .background {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.15;
+      }
     }
   }
-}
 
-h2 {
-  display: flex;
-  justify-content: space-between;
-}
+  h2 {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: var(--grey200);
-  margin-right: 10px !important;
+  .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--grey200);
+    margin-right: 10px !important;
+  }
 }

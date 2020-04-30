@@ -1,1 +1,20 @@
-<p>category-overview works!</p>
+<h2>
+  <span>Categories</span>
+  <button mat-stroked-button
+          color="primary"
+          class="margin-left"
+          (click)="onAddCategoryClicked()">🏷 Add category</button>
+</h2>
+<mat-selection-list role="list"
+                    [multiple]="false"
+                    [compareWith]="compareFunction"
+                    [(ngModel)]="selectedCategories"
+                    (ngModelChange)="onSelectedCategoryChange($event)">
+  <mat-list-option *ngFor="let category of categories"
+                   role="listitem"
+                   [value]="category">
+    <span class="circle"
+          [style.backgroundColor]="category.color"></span>
+    <span>{{category.name | titlecase}}</span>
+  </mat-list-option>
+</mat-selection-list>

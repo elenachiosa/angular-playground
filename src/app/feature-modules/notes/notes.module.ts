@@ -7,8 +7,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 
-import { TaskManagementRoutingModule } from './notes-routing.module';
-import { TaskManagementComponent } from './notes.component';
+import { NotesRoutingModule } from './notes-routing.module';
+import { NotesComponent } from './notes.component';
 import { CategoryDialogComponent } from './category-overview/category-dialog/category-dialog.component';
 import { TaskDialogComponent } from './task-overview/task-dialog/task-dialog.component';
 import { CategoryOverviewComponent } from './category-overview/category-overview.component';
@@ -16,7 +16,7 @@ import { TaskOverviewComponent } from './task-overview/task-overview.component';
 
 @NgModule({
   declarations: [
-    TaskManagementComponent,
+    NotesComponent,
     CategoryDialogComponent,
     TaskDialogComponent,
     CategoryOverviewComponent,
@@ -26,7 +26,7 @@ import { TaskOverviewComponent } from './task-overview/task-overview.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TaskManagementRoutingModule,
+    NotesRoutingModule,
     MatButtonModule,
     MatDialogModule,
     MatListModule,

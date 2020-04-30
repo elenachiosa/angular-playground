@@ -1,18 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { MatDialog } from '@angular/material/dialog';
-
 import { Task, TaskService, Category, CategoryService } from './shared';
-import { CategoryDialogComponent } from './category-overview/category-dialog/category-dialog.component';
-import { TaskDialogComponent } from './task-overview/task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.scss']
 })
-export class TaskManagementComponent implements OnInit, OnDestroy {
+export class NotesComponent implements OnInit, OnDestroy {
   categories: Category[];
   selectedCategories: Category[];
   categoryTasks: Task[];
@@ -21,7 +17,6 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
   private getTaskSubscription: Subscription;
 
   constructor(
-    private dialog: MatDialog,
     private categoryService: CategoryService,
     private taskService: TaskService
   ) {}
@@ -35,28 +30,13 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
     this.getTaskSubscription.unsubscribe();
   }
 
-  compareFunction = (o1: any, o2: any) => o1.name === o2.name;
-
-  onAddCategoryClicked(): void {
-    const dialogRef = this.dialog.open(CategoryDialogComponent, {
-      width: '500px'
-    });
-  }
-
-  onAddTaskClicked(): void {
-    const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '500px',
-      data: {
-        categoryId: this.selectedCategories[0].id
-      }
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      this.getTasksForCategory(this.selectedCategories[0].id);
-    });
-  }
-
-  onSelectedCategoryChange(categories: Category[]) {
+  onCategorySelected(categories: Category[]) {
+    this.selectedCategories = categories;
     this.getTasksForCategory(categories[0].id);
+  }
+
+  onTaskModalClosed(){
+      this.getTasksForCategory(this.selectedCategories[0].id);
   }
 
   private getTasksForCategory(categoryId: number) {
@@ -73,7 +53,7 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
       .subscribe((result) => {
         this.categories = result;
         this.selectedCategories = [this.categories[0]];
-        this.onSelectedCategoryChange(this.selectedCategories);
+        this.onCategorySelected(this.selectedCategories);
       });
   }
 }
