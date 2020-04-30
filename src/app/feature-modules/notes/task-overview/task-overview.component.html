@@ -4,6 +4,9 @@
           class="margin-left"
           (click)="onAddTaskClicked()">📋 Add task</button></h2>
 <mat-list role="list">
+  <h3 *ngIf="!categoryTasks" class="margin-top">
+    🌼 No tasks to display.
+  </h3>
   <mat-list-item *ngFor="let task of categoryTasks"
                  role="listitem"
                  class="task"
