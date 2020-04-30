@@ -2,11 +2,6 @@
   display: flex;
   width: 100%;
 
-  .mat-list-text {
-    flex-direction: row !important;
-    align-items: center;
-  }
-
   mat-list-single-selected-option {
     background-color: rgba(0, 0, 0, 0.05);
   }
@@ -16,6 +11,11 @@
     border-right: 1px solid var(--grey200);
     margin-right: 30px;
     padding-right: 30px;
+
+    .mat-list-text {
+      flex-direction: row !important;
+      align-items: center;
+    }
   }
 
   app-task-overview {

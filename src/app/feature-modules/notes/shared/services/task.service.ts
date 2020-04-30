@@ -12,7 +12,8 @@ export class TaskService {
     let tasks: Task[] = [
       {
         id: 1,
-        title: 'Wash the dog'
+        title: 'Wash the dog',
+        description: 'The dog has been playing in mud and needs a wash.'
       }
     ];
     this.categoryTasks.set(1, tasks);
