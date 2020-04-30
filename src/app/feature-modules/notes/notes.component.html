@@ -28,7 +28,7 @@
             class="margin-left"
             (click)="onAddTaskClicked()">📋 Add task</button></h2>
   <mat-list role="list">
-    <mat-list-item *ngFor="let task of selectedTasks"
+    <mat-list-item *ngFor="let task of categoryTasks"
                    role="listitem"
                    class="task"
                    [style.borderColor]="selectedCategories[0].color">{{task.title}}

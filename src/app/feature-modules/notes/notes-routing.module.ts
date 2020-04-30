@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TaskManagementComponent } from './task-management.component';
+import { TaskManagementComponent } from './notes.component';
 
 const routes: Routes = [
   {

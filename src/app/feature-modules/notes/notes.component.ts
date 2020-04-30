@@ -4,18 +4,18 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Task, TaskService, Category, CategoryService } from './shared';
-import { CategoryDialogComponent } from './category-dialog/category-dialog.component';
-import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { CategoryDialogComponent } from './category-overview/category-dialog/category-dialog.component';
+import { TaskDialogComponent } from './task-overview/task-dialog/task-dialog.component';
 
 @Component({
-  selector: 'app-task-management',
-  templateUrl: './task-management.component.html',
-  styleUrls: ['./task-management.component.scss']
+  selector: 'app-notes',
+  templateUrl: './notes.component.html',
+  styleUrls: ['./notes.component.scss']
 })
 export class TaskManagementComponent implements OnInit, OnDestroy {
   categories: Category[];
   selectedCategories: Category[];
-  selectedTasks: Task[];
+  categoryTasks: Task[];
 
   private getCategorySubscription: Subscription;
   private getTaskSubscription: Subscription;
@@ -51,21 +51,23 @@ export class TaskManagementComponent implements OnInit, OnDestroy {
       }
     });
     dialogRef.afterClosed().subscribe(() => {
-      this.taskService
-        .get(this.selectedCategories[0].id)
-        .subscribe((tasks) => (this.selectedTasks = tasks));
+      this.getTasksForCategory(this.selectedCategories[0].id);
     });
   }
 
   onSelectedCategoryChange(categories: Category[]) {
+    this.getTasksForCategory(categories[0].id);
+  }
+
+  private getTasksForCategory(categoryId: number) {
     this.getTaskSubscription = this.taskService
-      .get(categories[0].id)
+      .get(categoryId)
       .subscribe((result) => {
-        this.selectedTasks = result;
+        this.categoryTasks = result;
       });
   }
 
-  getCategories() {
+  private getCategories() {
     this.getCategorySubscription = this.categoryService
       .get()
       .subscribe((result) => {

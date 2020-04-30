@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { MatDialogRef } from '@angular/material/dialog';
-import { CategoryService, Category } from '../shared';
+import { CategoryService, Category } from '../../shared';
 
 @Component({
   selector: 'app-category-dialog',

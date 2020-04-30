@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskManagementComponent } from './task-management.component';
+import { TaskManagementComponent } from './notes.component';
 
 describe('TaskManagementComponent', () => {
   let component: TaskManagementComponent;

@@ -5,8 +5,8 @@ const routes: Routes = [
   {
     path: 'tasks',
     loadChildren: () =>
-      import('./modules/task-management/task-management.module').then(
-        (m) => m.TaskManagementModule
+      import('./feature-modules/notes/notes.module').then(
+        (m) => m.NotesModule
       )
   },
   { path: '', redirectTo: '/tasks', pathMatch: 'full' }

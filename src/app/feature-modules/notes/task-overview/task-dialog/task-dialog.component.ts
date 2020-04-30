@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { TaskService, Task } from '../shared';
+import { TaskService, Task } from '../../shared';
 
 @Component({
   selector: 'app-task-dialog',
@@ -16,11 +16,11 @@ export class TaskDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<TaskDialogComponent>,
     private formBuilder: FormBuilder,
     private taskService: TaskService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.initialiseForm();
   }
-
-  ngOnInit(): void {}
 
   closeDialog(): void {
     this.dialogRef.close();

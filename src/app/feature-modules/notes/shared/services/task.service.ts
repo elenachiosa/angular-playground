@@ -23,16 +23,13 @@ export class TaskService {
   }
 
   add(categoryId: number, task: Task): void {
-    let maxId: number;
-    let tasks: Task[];
+    let maxId: number = 0;
+    let tasks: Task[] = [];
 
     if (this.categoryTasks.get(categoryId)) {
       tasks = this.categoryTasks.get(categoryId);
       let ids = tasks.map((element) => element.id);
       maxId = Math.max(...ids);
-    } else {
-      tasks = [];
-      maxId = 0;
     }
 
     task.id = ++maxId;
