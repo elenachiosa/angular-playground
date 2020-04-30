@@ -13,6 +13,7 @@ import { CategoryDialogComponent } from './category-overview/category-dialog/cat
 import { TaskDialogComponent } from './task-overview/task-dialog/task-dialog.component';
 import { CategoryOverviewComponent } from './category-overview/category-overview.component';
 import { TaskOverviewComponent } from './task-overview/task-overview.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TaskOverviewComponent } from './task-overview/task-overview.component';
     MatButtonModule,
     MatDialogModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    SharedModule
   ]
 })
 export class NotesModule {}

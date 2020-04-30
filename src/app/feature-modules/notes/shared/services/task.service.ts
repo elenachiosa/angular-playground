@@ -13,7 +13,11 @@ export class TaskService {
       {
         id: 1,
         title: 'Wash the dog',
-        description: 'The dog has been playing in mud and needs a wash.'
+        description: 'The dog has been playing in mud and needs a wash.',
+        reminder: {
+          date: '20/04/2020',
+          time: '15:45'
+        }
       }
     ];
     this.categoryTasks.set(1, tasks);

@@ -1,0 +1,15 @@
+<div [formGroup]="reminderForm"
+     class="reminder">
+  <mat-form-field>
+    <mat-label>📅 Date</mat-label>
+    <input matInput
+           formControlName="date"
+           placeholder="Date">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>⌚ Time</mat-label>
+    <input matInput
+           formControlName="time"
+           placeholder="Time">
+  </mat-form-field>
+</div>
