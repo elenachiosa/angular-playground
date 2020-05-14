@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { TaskService, Task } from '../../shared';
-import { Reminder } from 'src/app/shared/controls/reminder/models/reminder.model';
+import { Reminder } from 'shared/components/reminder/models';
 
 @Component({
   selector: 'app-task-dialog',
@@ -41,7 +41,7 @@ export class TaskDialogComponent implements OnInit {
         [Validators.required, Validators.minLength(1), Validators.maxLength(30)]
       ],
       description: ['', Validators.maxLength(200)],
-      reminder: [new Reminder('2', '3')]
+      reminder: [new Reminder('02/02/2020', '15:00')]
     });
   }
 }

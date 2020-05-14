@@ -1,0 +1,18 @@
+<mat-list-item role="listitem"
+               class="task"
+               [style.borderColor]="selectedCategories[0].color">
+  <div mat-line
+       class="task-title-and-reminder">
+    <span>{{task.title}}</span>
+    <small *ngIf="task.reminder">
+      📅 {{task.reminder.date}} ⌚ {{task.reminder.time}}
+    </small>
+  </div>
+  <div mat-line
+       *ngIf="task.description"
+       class="margin-top">
+    {{task.description}}
+  </div>
+  <div [style.backgroundColor]="selectedCategories[0].color"
+       class="background"></div>
+</mat-list-item>

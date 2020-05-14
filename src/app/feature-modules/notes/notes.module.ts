@@ -13,7 +13,8 @@ import { CategoryDialogComponent } from './category-overview/category-dialog/cat
 import { TaskDialogComponent } from './task-overview/task-dialog/task-dialog.component';
 import { CategoryOverviewComponent } from './category-overview/category-overview.component';
 import { TaskOverviewComponent } from './task-overview/task-overview.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { TaskComponent } from './task-overview/task/task.component';
+import { ComponentsModule } from 'shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CategoryDialogComponent,
     TaskDialogComponent,
     CategoryOverviewComponent,
-    TaskOverviewComponent
+    TaskOverviewComponent,
+    TaskComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatDialogModule,
     MatListModule,
     MatInputModule,
-    SharedModule
+    ComponentsModule
   ]
 })
 export class NotesModule {}

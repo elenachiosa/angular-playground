@@ -1,30 +1,19 @@
-<h2><span>{{selectedCategories[0].name | titlecase}}</span>
-  <button mat-stroked-button
+<app-section-title>
+  <span section-title>{{selectedCategories[0].name | titlecase}}</span>
+  <button section-button
+          mat-stroked-button
           color="accent"
           class="margin-left"
-          (click)="onAddTaskClicked()">📋 Add task</button></h2>
+          (click)="onAddTaskClicked()">📋 Add task</button>
+</app-section-title>
+
 <mat-list role="list">
   <h3 *ngIf="!categoryTasks"
       class="margin-top">
     🌼 No tasks to display.
   </h3>
-  <mat-list-item *ngFor="let task of categoryTasks"
-                 role="listitem"
-                 class="task"
-                 [style.borderColor]="selectedCategories[0].color">
-    <div mat-line
-         class="task-title-and-reminder">
-      <span>{{task.title}}</span>
-      <small *ngIf="task.reminder">
-        📅 {{task.reminder.date}} ⌚ {{task.reminder.time}}
-      </small>
-    </div>
-    <div mat-line
-         *ngIf="task.description"
-         class="margin-top">
-      {{task.description}}
-    </div>
-    <div [style.backgroundColor]="selectedCategories[0].color"
-         class="background"></div>
-  </mat-list-item>
+  <app-task *ngFor="let task of categoryTasks"
+            [task]="task"
+            [selectedCategories]="selectedCategories">
+  </app-task>
 </mat-list>

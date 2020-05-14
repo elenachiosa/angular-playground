@@ -1,9 +1,9 @@
-import { Reminder } from 'src/app/shared/controls/reminder/models/reminder.model';
+import { Reminder } from 'shared/components/reminder/models';
 
 export class Task {
   id: number;
   title: string;
   description?: string;
   priority?: number;
-  reminder: Reminder
+  reminder: Reminder;
 }

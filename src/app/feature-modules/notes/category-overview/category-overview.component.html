@@ -1,10 +1,12 @@
-<h2>
-  <span>Categories</span>
-  <button mat-stroked-button
+<app-section-title>
+  <span section-title>Category</span>
+  <button section-button
+          mat-stroked-button
           color="primary"
           class="margin-left"
           (click)="onAddCategoryClicked()">🏷 Add category</button>
-</h2>
+</app-section-title>
+
 <mat-selection-list role="list"
                     [multiple]="false"
                     [compareWith]="compareFunction"
