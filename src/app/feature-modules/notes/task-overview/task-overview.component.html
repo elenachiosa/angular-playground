@@ -17,3 +17,11 @@
             [selectedCategories]="selectedCategories">
   </app-task>
 </mat-list>
+
+<app-list [list]="categoryTasks"
+          [myTemplate]="taskTemplate"></app-list>
+
+<ng-template #taskTemplate
+             let-taskItem="item">
+  <p>{{taskItem.description}}</p>
+</ng-template>

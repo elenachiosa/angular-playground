@@ -17,7 +17,31 @@ export class TaskService {
         reminder: {
           date: '20/04/2020',
           time: '15:45'
-        }
+        },
+        subList: [
+          {
+            id: 1,
+            title: 'Get the dog',
+            description: 'desc for get the dog',
+            subList: [
+              {
+                id: 1,
+                title: '--------',
+                description: 'desc -------'
+              }
+            ]
+          },
+          {
+            id: 2,
+            title: 'Wash the dog',
+            description: 'desc for wash the dog'
+          },
+          {
+            id: 3,
+            title: 'Dry the dog',
+            description: 'desc for dry the dog'
+          }
+        ]
       }
     ];
     this.categoryTasks.set(1, tasks);

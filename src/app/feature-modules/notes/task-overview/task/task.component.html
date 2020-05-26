@@ -13,6 +13,13 @@
        class="margin-top">
     {{task.description}}
   </div>
+  <div mat-line
+       *ngIf="task.subList"
+       class="subtask margin-top">
+    <div *ngFor="let subTask of task.subList">
+      {{subTask.title}}
+    </div>
+  </div>
   <div [style.backgroundColor]="selectedCategories[0].color"
        class="background"></div>
 </mat-list-item>

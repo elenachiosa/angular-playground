@@ -1,0 +1,14 @@
+:host ::ng-deep {
+  .mat-list-item {
+    height: auto !important;
+    
+    .mat-list-item-content {
+      padding: 16px !important;
+
+      .subtask {
+        padding-left: 16px;
+        border-left: 1px solid var(--grey200);
+      }
+    }
+  }
+}

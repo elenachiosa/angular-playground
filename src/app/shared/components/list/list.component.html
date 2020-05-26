@@ -1,0 +1,15 @@
+<ng-container [ngTemplateOutlet]="treeViewList"
+              [ngTemplateOutletContext]="{$implicit: list}"></ng-container>
+<ng-template #treeViewList
+             let-treeItems>
+  <ul>
+    <li *ngFor="let listItem of treeItems">
+      {{listItem.title}}
+      <ng-container *ngTemplateOutlet="myTemplate; context: {item: listItem}">
+      </ng-container>
+      <ng-container *ngIf="listItem.subList"
+                    [ngTemplateOutlet]="treeViewList"
+                    [ngTemplateOutletContext]="{$implicit: listItem.subList}"></ng-container>
+    </li>
+  </ul>
+</ng-template>
